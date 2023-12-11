@@ -1,11 +1,12 @@
 import key
 
-from flask import Flask,render_template
+from flask import Flask,render_template,flash
 from flask_wtf import FlaskForm
 from wtforms import StringField,SubmitField
 from wtforms.validators import DataRequired
 
 app=Flask(__name__)
+#cref token
 app.secret_key=key.getKey()
 
 #creating form class
@@ -30,6 +31,7 @@ def name ():
     if form.validate_on_submit():
         name=form.name.data
         form.name.data=''
+        flash("Form submitted successfully")
     return render_template('name.html',name=name,form=form)
 
 @app.errorhandler(404) #page not found
