@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 Relay Control</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>ESP32 Relay Control</h1>
+    <form action ='' method="POST">
+        <button id="onButton" type="submit" value=1>Turn On Relay</button>
+        <button id="offButton" type="submit" value=0>Turn Off Relay</button>
+    </form>
+
+    {% comment %} <script>
+        $(document).ready(function() {
+            $("#onButton").click(function() {
+                sendSignal('on');
+            });
+
+            $("#offButton").click(function() {
+                sendSignal('off');
+            });
+
+            function sendSignal(action) {
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json',
+                    url: '/control_relay',
+                    data: JSON.stringify({ action: action }),
+                    success: function(response) {
+                        console.log('Signal sent: ' + action);
+                    },
+                    error: function(error) {
+                        console.error('Error sending signal: ' + error);
+                    }
+                });
+            }
+        });
+    </script> {% endcomment %}
+</body>
+</html>

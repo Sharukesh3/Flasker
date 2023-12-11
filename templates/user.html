@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <center>
+        <h1>Hello {{ user_name|upper }}</h1>
+    </center>
+    <p>{{ stuff|safe }}</p>
+    <p>{{ stuff|striptags }}</p>
+    <h3>Favorite anime</h3>
+    {% for anime in f %}
+        {{ anime }}</br>
+    {% endfor %}
+{% endblock %}
