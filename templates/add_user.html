@@ -9,18 +9,23 @@
  {%endfor%}
     {%if name%}
     <h1>Hello {{name}}</h1>
-    <br/>
-    <image src={{ url_for('static',filename='images/IMG20230903175049.jpg') }} width=1080 height=1920>
     {%else%}
-    <h1>What's your name?</h1>
+    <h1>user list:</h1>
     <form method ='POST'>
         {{form.hidden_tag()}}
 
         {{form.name.label(class="form-label")}}
         {{form.name(class="form-control")}}
         <br/>
+        {{form.email.label(class="form-label")}}
+        {{form.email(class="form-control")}}
+        <br/>
         {{form.submit(class="btn btn-secondary")}}
     <form>
     {%endif%}
+    <br/><br/><br/>
+    {%for x in our_user%}
+    {{our_user.id}}-{{our_user.name}}
+    {%endfor%}
 
 {% endblock %}
