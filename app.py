@@ -80,13 +80,6 @@ def name ():
         flash("Form submitted successfully")
     return render_template('name.html',name=name,form=form)
 
-
-@app.route('/initi', methods=['GET'])
-def initialize_database():
-    with app.app_context():
-        db.create_all()
-    return 'Database initialized successfully'
-
 @app.errorhandler(404) #page not found
 def page_not_found(e):
     return render_template("404.html"),404 
